@@ -116,9 +116,7 @@ class _HomeState extends State<Home> {
               ),
               itemCount: seatData.length,
               itemBuilder: (BuildContext context, int index) {
-                if ([3, 8, 13, 18, 23, 28, 33, 38].contains(index)) {
-                  return seatData[index];
-                } else {
+                if (seatData[index] is Seats) {
                   return Container(
                     width: 20,
                     height: 28,
@@ -140,6 +138,8 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   );
+                } else {
+                  return seatData[index];
                 }
               },
             )
